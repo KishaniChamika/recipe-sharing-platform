@@ -36,3 +36,22 @@
     border-radius: 5px;
     margin-top: 20px;
   }
+
+  .features {
+    margin: 20px;
+    text-align: center; /* Centering the features section */
+  }
+  
+  .features-heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .feature-item {
+    display: inline-block;
+    max-width: 250px;
+    text-align: center;
+    margin: 20px;
+  }
+
+  
