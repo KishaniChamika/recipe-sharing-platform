@@ -40,7 +40,8 @@ export const Register=()=>{
                 </div>
 
                 
-                
+                <button type="submit" >Register</button>
+                <p className='switch'>Already have an account? <a href="#" className='register-link' >Login here</a></p>
             </form>
             </div>
         </div>
