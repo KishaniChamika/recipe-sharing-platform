@@ -11,3 +11,18 @@
     text-align: center;
     color: #fffcf9;
   }
+
+  .banner-content {
+    margin: auto;
+    max-width: 600px;
+  }
+  
+  .banner h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .banner p {
+    font-size: 1.4em;
+  }
+
