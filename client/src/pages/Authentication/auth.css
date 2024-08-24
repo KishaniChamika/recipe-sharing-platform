@@ -50,9 +50,10 @@
     outline:none;
     border: 2px solid #f8931f;
     border-radius: 40px;
-    color:#363636;
+    color: #fffcf9;
     padding:20px 45px 20px 20px;
     margin-top: 7px;
+    box-shadow: none;
 }
 .input-box label{
     color:#fffcf9;
@@ -62,6 +63,11 @@
     color:#fffcf9;
     font-size: small;
     font-weight: 100;
+}
+.input-box input:focus {
+    border-color: #f8931f; /* Border color on focus */
+    color: #fffcf9; /* Text color remains white */
+    background-color: transparent; /* Ensure background stays transparent */
 }
 
 .wrapper button {
@@ -79,7 +85,9 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 17px;
     margin-bottom: 17px;
+    transition: background-color 0.3s ease;
 }
+
 
 .wrapper .register-link{
     font-size: 14.5px;
