@@ -19,7 +19,7 @@ export const Register: React.FC<RegisterProps> = ({ switchForm }) =>{
     return(
         <div className='auth-background'>
         <div className="wrapper">
-        <form >
+        <form  onSubmit={onSubmit}>
                 <h1>REGISTER</h1>
 
                 <div className="input-box">
