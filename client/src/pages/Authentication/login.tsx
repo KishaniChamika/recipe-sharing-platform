@@ -6,6 +6,7 @@ export const Login =()=>{
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     return (
+        <div className='auth-background'>
         <div className='wrapper'>
             <form >
                 <h1>LOGIN</h1>
@@ -29,6 +30,7 @@ export const Login =()=>{
                 <button type="submit">Login</button>
                 <p className="switch">Don't have an account? <a href="#" className='register-link' >Register here</a></p>
             </form>
+        </div>
         </div>
     );
 }
