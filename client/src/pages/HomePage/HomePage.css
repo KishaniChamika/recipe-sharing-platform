@@ -26,3 +26,13 @@
     font-size: 1.4em;
   }
 
+  .get-started-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #f8931f;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
