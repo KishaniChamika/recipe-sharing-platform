@@ -54,4 +54,18 @@
     margin: 20px;
   }
 
+  .feature-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
   
+  .feature-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+  
+  .feature-item p {
+    font-size: 1em;
+    color: #363636;
+  }
