@@ -1,12 +1,10 @@
 import React from 'react';
-import { Login } from './pages/Authentication/login';
-import { Register } from './pages/Authentication/register';
-import { Auth } from './pages/Authentication/auth';
+
 const App: React.FC = () => {
   return (
     <div>
-      
-      <Auth/>
+      <h1>Welcome to My Simple Client Interface</h1>
+      {/* Add your routes or components here */}
     </div>
   );
 };
