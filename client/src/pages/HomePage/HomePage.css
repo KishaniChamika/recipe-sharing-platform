@@ -1,0 +1,71 @@
+.home-container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #363636;
+  }
+  
+  .banner {
+    background-image: url('./banner-image.jpg'); /* Path to your banner image */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+    text-align: center;
+    color: #fffcf9;
+  }
+
+  .banner-content {
+    margin: auto;
+    max-width: 600px;
+  }
+  
+  .banner h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .banner p {
+    font-size: 1.4em;
+  }
+
+  .get-started-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #f8931f;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .features {
+    margin: 20px;
+    text-align: center; /* Centering the features section */
+  }
+  
+  .features-heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .feature-item {
+    display: inline-block;
+    max-width: 250px;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .feature-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .feature-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+  
+  .feature-item p {
+    font-size: 1em;
+    color: #363636;
+  }
