@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { Login } from './pages/Authentication/login';
 const App: React.FC = () => {
   return (
     <div>
-      <h1>Welcome to My Simple Client Interface</h1>
-      {/* Add your routes or components here */}
+      
+      <Login/>
     </div>
   );
 };
