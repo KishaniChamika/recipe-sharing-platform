@@ -1,12 +1,12 @@
 import React from "react";
-
+import './about.css';
 export const About:React.FC=()=>{
     return(
-        <div>
-            <div>
+        <div className="about-container">
+            <div className="about-header">
                 <h1>About Us</h1>
             </div>
-            <div>
+            <div className="about-content">
             <h3>Welcome to Recipe Hub!</h3>
                 
                 <p>Where flavors meet creativity and culinary passion knows no bounds. Our platform is a melting pot of diverse tastes, offering a space for food lovers to discover, create, and share recipes that inspire and delight. Whether you're a seasoned chef or a home cook, join us in celebrating the art of cooking.</p>
@@ -19,7 +19,7 @@ export const About:React.FC=()=>{
                         <li> D.D.T.O.Wickramaratne</li>
                     </ul>
                     <h3>Contact Us</h3>
-                    <div>
+                    <div className='contact'>
                     <p >We'd love to hear from you! Reach out to us at:<br/>
                     Email: <a href="mailto:recipehub@gmail.com">recipehub@gmail.com</a></p>
                     </div>
