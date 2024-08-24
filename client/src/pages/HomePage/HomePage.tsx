@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 // Importing images using require()
@@ -15,7 +16,7 @@ const HomePage: React.FC = () => {
           <div className="banner-content">
             <h1>Welcome to RecipeHub</h1>
             <p>Where Every Recipe Tells a Story - Discover, Create, Share!</p>
-            <a href="https://www.recipehub.com/login" className="get-started-button">Get Started</a>
+            <Link to="/login" className="get-started-button">Get Started</Link>
           </div>
         </div>
         <div className="features">
