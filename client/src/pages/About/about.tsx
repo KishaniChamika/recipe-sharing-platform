@@ -1,10 +1,15 @@
 import React from "react";
 import './about.css';
+import aboutImage from '../About/about.jpg';
+
 export const About:React.FC=()=>{
     return(
         <div className="about-container">
             <div className="about-header">
                 <h1>About Us</h1>
+            </div>
+            <div className="about-image">
+                <img src={aboutImage} alt="About us" />
             </div>
             <div className="about-content">
             <h3>Welcome to Recipe Hub!</h3>
