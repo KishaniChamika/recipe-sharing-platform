@@ -1,0 +1,13 @@
+.home-container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #363636;
+  }
+  
+  .banner {
+    background-image: url('./banner-image.jpg'); /* Path to your banner image */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+    text-align: center;
+    color: #fffcf9;
+  }
