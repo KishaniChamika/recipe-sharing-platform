@@ -65,9 +65,9 @@
     font-weight: 100;
 }
 .input-box input:focus {
-    border-color: #f8931f; /* Border color on focus */
-    color: #fffcf9; /* Text color remains white */
-    background-color: transparent; /* Ensure background stays transparent */
+    border-color: #f8931f; 
+    color: #fffcf9; 
+    background-color: transparent; 
 }
 
 .wrapper button {
@@ -88,6 +88,9 @@
     transition: background-color 0.3s ease;
 }
 
+.wrapper button:active {
+    background-color: #fcc696; 
+}
 
 .wrapper .register-link{
     font-size: 14.5px;
