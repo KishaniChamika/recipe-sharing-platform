@@ -13,7 +13,7 @@ export const Auth:React.FC=()=>{
         <div className="auth">
             <div >
                 {showLogin ? (
-                    <Login />
+                    <Login switchForm={switchForm}/>
                 ) : (
                     <Register />
                 )}
