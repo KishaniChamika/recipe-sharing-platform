@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import './auth.css';
+import { useNavigate } from 'react-router-dom';
 
 interface LoginProps {
     switchForm: () => void;
@@ -12,9 +13,16 @@ export const Login: React.FC <LoginProps> = ({ switchForm })=>{
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     
+    const navigate = useNavigate();
+
     const onSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        alert(`Login details: \nUsername: ${email}\nPassword: ${password}`);
+        if (email && password) { // Basic validation check
+            alert(`Login successful: \nEmail: ${email}`);
+            navigate('/home'); // Redirect to the home page
+        } else {
+            alert("Please enter both email and password.");
+        }
         
     };
 
