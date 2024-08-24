@@ -18,7 +18,11 @@ export const About:React.FC=()=>{
                         <li>R.M.H.D.Rajaguru</li> 
                         <li> D.D.T.O.Wickramaratne</li>
                     </ul>
-                    
+                    <h3>Contact Us</h3>
+                    <div>
+                    <p >We'd love to hear from you! Reach out to us at:<br/>
+                    Email: <a href="mailto:recipehub@gmail.com">recipehub@gmail.com</a></p>
+                    </div>
             </div>
             
         </div>
