@@ -30,7 +30,24 @@ const HomePage: React.FC = () => {
             <h3>Search</h3>
             <p>Find recipes quickly with our powerful search feature. Filter by ingredients, categories, and more.</p>
           </div>
+          <div className="feature-item">
+            <img src={userIcon} alt="Profile" className="icon" />
+            <h3>Profile</h3>            
+            <p>Manage your profile, view your submitted recipes, and track your activity.</p>
+          </div>
+          <div className="feature-item">
+            <img src={favoritesIcon} alt="Favorites" className="icon" />
+            <h3>Favorites</h3>
+            <p>Save and view your favorite recipes for easy access.</p>
+          </div>
+          <div className="feature-item">
+            <img src={categoryIcon} alt="Category" className="icon" />
+            <h3>Category</h3>
+            <p>Save and view your favorite recipes for easy access.</p>
+          </div>
         </div>
       </div>
     );
 };  
+
+export default HomePage;
