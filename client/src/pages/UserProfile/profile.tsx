@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import './profile.css';
 
 interface UserProfile {
     username: string;
@@ -18,20 +19,20 @@ export const ProfilePage:React.FC=()=>{
     const [avatar, setAvatar] = useState<File | null>(null);
 
     return(
-        <div>
-            <div>
+        <div className="container">
+            <div className="profile-wrapper">
                 <h2>User Profile</h2>
-                <div>
+                <div className="info">
                     <p><strong>Username:</strong></p>
                     <p><strong>Email:</strong></p>
                     <p><label>First Name:</label></p>
                     <p><label>Last Name:</label></p>
                     <p><label>Bio:</label></p>
                     <p><label>Avatar:</label></p>
-                    <p>
+                    <div className="button-group">
                         <button>Edit Profile</button>
                         <button>Logout</button>
-                    </p>
+                    </div>
                 </div>
                 
             </div>
