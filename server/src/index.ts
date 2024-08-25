@@ -10,7 +10,7 @@ app.use(cors({
     origin: 'http://localhost:3001', // Your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
-  }));
+}));
 
 app.use(bodyParser.json());
 app.use(express.json());
