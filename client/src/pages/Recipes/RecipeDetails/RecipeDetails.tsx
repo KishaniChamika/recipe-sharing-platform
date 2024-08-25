@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom'; // Removed `useNavigate` since it's unused
 import { Recipe } from '../types/recipe';
 import './RecipeDetails.css';
 
@@ -27,8 +27,7 @@ const recipes: Recipe[] = [
 
 const RecipeDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  
+
   const recipe = recipes.find((r) => r.id === id);
 
   if (!recipe) {
@@ -47,7 +46,6 @@ const RecipeDetails: React.FC = () => {
           <h3>Instructions:</h3>
           <p>{recipe.instructions}</p>
         </div>
-        
       </div>
     </div>
   );
