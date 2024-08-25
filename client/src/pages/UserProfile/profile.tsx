@@ -28,7 +28,10 @@ export const ProfilePage:React.FC=()=>{
                     <p><label>Last Name:</label></p>
                     <p><label>Bio:</label></p>
                     <p><label>Avatar:</label></p>
-
+                    <p>
+                        <button>Edit Profile</button>
+                        <button>Logout</button>
+                    </p>
                 </div>
                 
             </div>
