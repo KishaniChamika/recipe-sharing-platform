@@ -49,3 +49,12 @@ export const login =async(req: Request, res: Response)=>{
     }
 
 };
+
+export const profile = async (req: Request, res: Response) => {
+    try {
+        res.status(200).json({ user: req.user });
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error });
+    }
+};
+
