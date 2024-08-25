@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import './auth.css';
+import { registerUser } from '../../api/api';
+import { useNavigate } from 'react-router-dom';
 
 interface RegisterProps {
     switchForm: () => void;
@@ -9,13 +11,25 @@ export const Register: React.FC<RegisterProps> = ({ switchForm }) =>{
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [email, setEmail] = useState<string>("");
-    
-    const onSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        alert(`Registration details: \nUsername: ${username}\nEmail: ${email}\nPassword: ${password}`);
-        switchForm(); 
-    };
+    const navigate = useNavigate(); 
 
+    const onSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        try {
+            const data = await registerUser(username, email, password);
+            if (data.message) {
+                alert('Registration successful');
+                switchForm();
+                navigate('/'); // Redirect to login after successful registration
+            } else {
+                alert(`Registration failed: ${data.message}`);
+            }
+        } catch (err: any) {
+            // Log the error message for debugging
+            console.error('Registration error:', err.message);
+            alert(`An error occurred during registration: ${err.message}`);
+        }
+    };
     return(
         <div className='auth-background'>
         <div className="wrapper">
