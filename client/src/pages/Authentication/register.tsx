@@ -20,7 +20,7 @@ export const Register: React.FC<RegisterProps> = ({ switchForm }) =>{
             if (data.message) {
                 alert('Registration successful');
                 switchForm();
-                navigate('/'); // Redirect to login after successful registration
+                navigate('/login'); // Redirect to login after successful registration
             } else {
                 alert(`Registration failed: ${data.message}`);
             }
