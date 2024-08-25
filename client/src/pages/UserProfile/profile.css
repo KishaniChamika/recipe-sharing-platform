@@ -1,6 +1,7 @@
 .container {
-    background-color: #6e6e6e;
-    
+    background-color: #fffcf9;
+    background: url('./back.jpg') no-repeat center center;
+    background-size: cover;
     padding: 20px;
     min-height: 100vh;
     display:flex;
@@ -46,10 +47,11 @@ label {
 }
 .button-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%; /* Make the buttons take the full width of the container */
     margin-top: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .button-group button {
@@ -63,6 +65,7 @@ label {
     margin: auto;
     margin-top: 20px;
     align-items:center;
+    margin-left: 5px;
     
 }
 
