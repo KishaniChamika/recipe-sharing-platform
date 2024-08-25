@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-/*import { Recipe } from '../types/recipe';
+import { Recipe } from '../types/recipe';
 import './AddRecipe.css';
 
 const AddRecipe: React.FC = () => {
