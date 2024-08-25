@@ -27,3 +27,25 @@ export const register = async (req: Request, res: Response): Promise<void> => {
         res.status(500).json({ message: error.message || 'An error occurred during registration.' });
     }
 };
+
+export const login =async(req: Request, res: Response)=>{
+    const {email,password} =req.body
+
+    try{
+        let user = await User.findOne({email});
+        //console.log("User is coming from login",user)
+
+        if(!user) return res.json({message:"User not exist..!"})
+        const validPass = await bcrypt.compare(password,user.password)
+        if (!validPass) return res.json({message:"Invalid credentials"});
+
+        const token = jwt.sign({userId:user._id},"!@#$%^&*()",{
+            expiresIn:'1d'
+        })
+
+        res.json({message:`Welcome ${user.username}`,token})
+    }catch(error){
+        res.json({message:error})
+    }
+
+};
