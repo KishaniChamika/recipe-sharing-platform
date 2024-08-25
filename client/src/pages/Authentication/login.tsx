@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import './auth.css';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../api/api';
 
 interface LoginProps {
     switchForm: () => void;
@@ -15,15 +16,24 @@ export const Login: React.FC <LoginProps> = ({ switchForm })=>{
     
     const navigate = useNavigate();
 
-    const onSubmit = (event: React.FormEvent) => {
+    const onSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        if (email && password) { // Basic validation check
-            alert(`Login successful: \nEmail: ${email}`);
-            navigate('/home'); // Redirect to the home page
-        } else {
-            alert("Please enter both email and password.");
+        try {
+            // Call the loginUser function to send the POST request
+            const data = await loginUser(email, password);
+
+            if (data.token) {
+                // Store the token in localStorage or cookies
+                localStorage.setItem("accessToken", data.token);
+                alert(`Login successful: ${data.message}`);
+                navigate('/');
+            } else {
+                alert(`Login failed: ${data.message}`);
+            }
+        } catch (err: any) {
+            console.error("Login error:", err.message);
+            alert(`An error occurred during login: ${err.message}`);
         }
-        
     };
 
     return (
@@ -37,6 +47,7 @@ export const Login: React.FC <LoginProps> = ({ switchForm })=>{
                     <input
                         type="text"
                         id="email"
+                        onChange={(event) => setEmail(event.target.value)}
                         placeholder="Enter your email"
                     />
                 </div>
