@@ -16,8 +16,23 @@ export const ProfilePage:React.FC=()=>{
     const [lastname, setLastname] = useState('');
     const [bio, setBio] = useState('');
     const [avatar, setAvatar] = useState<File | null>(null);
-    
+
     return(
-        <div>Profile</div>
+        <div>
+            <div>
+                <h2>User Profile</h2>
+                <div>
+                    <p><strong>Username:</strong></p>
+                    <p><strong>Email:</strong></p>
+                    <p><label>First Name:</label></p>
+                    <p><label>Last Name:</label></p>
+                    <p><label>Bio:</label></p>
+                    <p><label>Avatar:</label></p>
+
+                </div>
+                
+            </div>
+            
+        </div>
     )
 }
