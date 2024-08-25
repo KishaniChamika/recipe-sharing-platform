@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { User } from '../models/User';
+import bcrypt from 'bcryptjs';
 
 export const register = async (req: Request, res: Response): Promise<void> => {
     const { username, email, password } = req.body;
@@ -12,9 +13,11 @@ export const register = async (req: Request, res: Response): Promise<void> => {
             res.json({ message: "User Already exists" });
             return; 
         }
+        // Hash password before saving
+        const hashPass = await bcrypt.hash(password, 10);
 
         // Create new user
-        user = await User.create({ username, email, password });
+        user = await User.create({ username, email, password: hashPass});
 
         res.json({ message: "User Registered Successfully!" });
     } catch (error) {
