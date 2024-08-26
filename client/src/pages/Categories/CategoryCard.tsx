@@ -15,4 +15,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, image, onClick }) => 
       </div>
     );
 };
+
+export default CategoryCard;
+
   
