@@ -1,0 +1,10 @@
+.categories-page {
+  background: linear-gradient(to right, #ff6f61, #ffccbc);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
