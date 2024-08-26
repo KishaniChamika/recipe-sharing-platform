@@ -1,0 +1,14 @@
+/* src/components/navigation/Navigation.css */
+.navigation {
+    background-color: #fffcf9;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .navigation a {
+    text-decoration: none;
+    color: #363636;
+    font-weight: bold;
+  }
+  
