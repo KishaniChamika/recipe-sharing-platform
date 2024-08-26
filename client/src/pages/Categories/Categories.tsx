@@ -19,3 +19,21 @@ const Categories: React.FC = () => {
   const handleClick = (category: string) => {
     navigate(`/recipes/${category}`);
   };
+
+  return (
+    <div className="categories-page">
+      <div className="categories-container">
+        {categories.map((category) => (
+          <CategoryCard
+            key={category.name}
+            name={category.name}
+            image={category.image}
+            onClick={() => handleClick(category.name)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Categories;
