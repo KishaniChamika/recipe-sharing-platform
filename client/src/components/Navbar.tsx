@@ -31,4 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
   ) : (
     <li><Link to="/login">Login</Link></li>
   )}
+
+export default Navbar;
+
   
