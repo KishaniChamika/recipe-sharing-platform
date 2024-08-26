@@ -24,3 +24,11 @@
 .nav-links li {
   display: inline;
 }
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
