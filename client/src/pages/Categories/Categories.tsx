@@ -12,3 +12,10 @@ const categories = [
   { name: 'Main Courses', image: require('./main_courses.jpg') },
   { name: 'Baked Items', image: require('./baked_items.jpg') },
 ];
+
+const Categories: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (category: string) => {
+    navigate(`/recipes/${category}`);
+  };
