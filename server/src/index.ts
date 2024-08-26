@@ -6,15 +6,12 @@ import userRouter from "./routes/user";
 
 const app=express();
 
-app.use(cors({
-    origin: 'http://localhost:3001', // Your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api',userRouter);
+app.use('/uploads', express.static('uploads'));
 
 mongoose.connect(
     "mongodb+srv://adkishani:dbRecipeApp@cluster0.c8wjr.mongodb.net/RecipeApp?retryWrites=true&w=majority",{
@@ -29,4 +26,4 @@ mongoose.connect(
 
 const port=3000;
 
-app.listen(port,()=>console.log(`server is running on port ${port}`))
+app.listen(port,'0.0.0.0',()=>console.log(`server is running on port ${port}`))
