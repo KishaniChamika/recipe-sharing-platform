@@ -69,12 +69,12 @@ const AddRecipe: React.FC = () => {
             <select id="category" name="category" value={recipe.category} onChange={handleChange} required>
               <option value="">Select Category</option>
               <option value="Soup">Soup</option>
-              <option value="Dessert">Dessert</option>
-              <option value="Salad">Salad</option>
-              <option value="Beverage">Beverage</option>
+              <option value="Dessert">Desserts</option>
+              <option value="Salad">Salads</option>
+              <option value="Beverage">Beverages</option>
               <option value="Appetizers">Appetizers</option>
-              <option value="Main Courses">Main Course</option>
-              <option value="Baked Item">Baked Item</option>
+              <option value="Main Courses">Main Courses</option>
+              <option value="Baked Item">Baked Items</option>
             </select>
           </div>
           <div className="form-group">
