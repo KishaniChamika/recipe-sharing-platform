@@ -58,3 +58,24 @@ export const profile = async (req: Request, res: Response) => {
     }
 };
 
+export const updateProfile = async (req: Request, res: Response) => {
+    try {
+        const { firstname, lastname, bio } = req.body;
+        let avatar = req.user.avatar;
+
+        if (req.file) {
+            avatar = req.file.path;
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(req.user._id, {
+            firstname,
+            lastname,
+            bio,
+            avatar
+        }, { new: true });
+
+        res.json({ message: "Profile updated successfully", user: updatedUser });
+    } catch (error) {
+        res.status(500).json({ message: "Error updating profile", error });
+    }
+};
