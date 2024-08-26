@@ -1,3 +1,5 @@
+// src/components/Navbar/Navbar.tsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -17,21 +19,17 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
         <li><Link to="/recipes">Recipes</Link></li>
         <li><Link to="/categories">Categories</Link></li>
         <li><Link to="/about">About Us</Link></li>
-        <li><Link to="/search">Search</Link></li> {/* Changed search bar to a link */}
+        {isLoggedIn ? (
+          <>
+            <li><Link to="/favorites">Favorites</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+          </>
+        ) : (
+          <li><Link to="/login">Login</Link></li>
+        )}
       </ul>
     </nav>
   );
 };
 
-{isLoggedIn ? (
-    <>
-      <li><Link to="/favorites">Favorites</Link></li>
-      <li><Link to="/profile">Profile</Link></li>
-    </>
-  ) : (
-    <li><Link to="/login">Login</Link></li>
-  )}
-
 export default Navbar;
-
-  
