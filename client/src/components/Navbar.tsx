@@ -17,9 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
         <li><Link to="/recipes">Recipes</Link></li>
         <li><Link to="/categories">Categories</Link></li>
         <li><Link to="/about">About Us</Link></li>
-        <li>
-          <input type="text" placeholder="Search..." className="search-bar" />
-        </li>
+        <li><Link to="/search">Search</Link></li> {/* Updated search link */}
         {isLoggedIn ? (
           <>
             <li><Link to="/favorites">Favorites</Link></li>
