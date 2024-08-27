@@ -3,6 +3,16 @@
   color: #363636;
 }
 
+.blink {
+  animation: blinkEffect 0.1s linear; /* Blink effect */
+}
+
+@keyframes blinkEffect {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .banner {
   background-image: url('./banner-image.jpg'); /* Path to your banner image */
   background-size: cover;
