@@ -8,6 +8,9 @@ import { About } from './pages/About/about'; // Named import
 //import Favorite from './pages/Favorite';
 import { ProfilePage } from './pages/UserProfile/profile';
 import { Auth } from './pages/Authentication/auth'; // Named import
+import { Search } from 'react-router-dom';
+import RecipeDetails from './pages/Recipes/RecipeDetails/RecipeDetails';
+import { SearchBar } from './pages/Search/SearchBar';
 
 const App: React.FC = () => {
   const isLoggedIn = false; // Set this based on authentication status
@@ -22,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/about" element={<About />} /> {/* Updated to use About component */}
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/login" element={<Auth />} />
+        <Route path="/search" element={<SearchBar/>}/>
       </Routes>
     </Router>
   );
