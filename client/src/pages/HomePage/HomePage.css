@@ -3,11 +3,21 @@
   color: #363636;
 }
 
+.blink {
+  animation: blinkEffect 0.1s linear; /* Blink effect */
+}
+
+@keyframes blinkEffect {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .banner {
   background-image: url('./banner-image.jpg'); /* Path to your banner image */
   background-size: cover;
   background-position: center;
-  padding: 50px 0;
+  padding: 125px 0;
   text-align: center;
   color: #fffcf9;
 }
@@ -58,7 +68,18 @@
   width: 60px;
   height: 60px;
   margin-bottom: 10px;
+  transition: transform 0.3s ease; /* Add smooth transition effect */
 }
+
+.feature-item img:hover {
+  transform: scale(1.1); /* Scale up image on hover */
+}
+
+.feature-item a {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit color from parent */
+}
+
 
 .feature-item h3 {
   font-size: 1.5em;
