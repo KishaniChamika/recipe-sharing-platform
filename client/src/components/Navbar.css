@@ -1,6 +1,6 @@
 /* Navbar.css */
 .navbar {
-  background-color: #f8931f;
+  background-color: #f8931f; /* Updated color */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -36,10 +36,4 @@
 
 .nav-links a:hover {
   background-color: #555;
-}
-
-.search-bar {
-  padding: 5px;
-  border: none;
-  border-radius: 4px;
 }
