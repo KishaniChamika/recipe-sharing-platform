@@ -1,5 +1,3 @@
-// src/components/Navbar/Navbar.tsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -19,6 +17,9 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
         <li><Link to="/recipes">Recipes</Link></li>
         <li><Link to="/categories">Categories</Link></li>
         <li><Link to="/about">About Us</Link></li>
+        <li>
+          <input type="text" placeholder="Search..." className="search-bar" />
+        </li>
         {isLoggedIn ? (
           <>
             <li><Link to="/favorites">Favorites</Link></li>
