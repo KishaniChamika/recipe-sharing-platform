@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, handleLogout }) => {
             <li><Link to="#" onClick={handleLogout} className="nav-link">Logout</Link></li>
           </>
         ) : (
-          <li><Link to="/auth">Login</Link></li> /* Adjusted to match route for the Auth component */
+          <li><Link to="/login">Login</Link></li> /* Adjusted to match route for the Auth component */
         )}
       </ul>
     </nav>
