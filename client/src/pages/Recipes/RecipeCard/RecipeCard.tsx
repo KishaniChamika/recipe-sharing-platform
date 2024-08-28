@@ -18,7 +18,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onToggleFavorite, onVie
   
   return (
     <div className="recipe-card">
-      <img src={`http://localhost:3000${recipe.image}`} alt={recipe.name} />
+      <img src={recipe.image} alt={recipe.name} className='recipe-card img'/>
       <div className="recipe-name">{recipe.name}</div>
       <div className="recipe-category">{recipe.category}</div>
       <div className="action-buttons">
@@ -39,4 +39,4 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onToggleFavorite, onVie
   );
 };
 
-export default RecipeCard;
+export default RecipeCard;

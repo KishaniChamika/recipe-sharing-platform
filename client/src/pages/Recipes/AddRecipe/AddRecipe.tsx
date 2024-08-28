@@ -8,7 +8,7 @@ const categories = ['Select Category', 'Soup', 'Desserts', 'Salads', 'Beverages'
 const AddRecipe: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [image, setImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
   const [category, setCategory] = useState(categories[0]);
@@ -16,18 +16,22 @@ const AddRecipe: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
-    if (name && image && ingredients && instructions && category) {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('ingredients', ingredients);
-      formData.append('instructions', instructions);
-      formData.append('category', category);
-      formData.append('image', image);
+    if (name && imageUrl && ingredients && instructions && category) {
+      const recipeData = {
+        name,
+        image: imageUrl,
+        ingredients,
+        instructions,
+        category
+      };
   
       try {
         const response = await fetch('http://localhost:3000/api/recipes', {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(recipeData),
         });
   
         if (response.ok) {
@@ -67,12 +71,12 @@ const AddRecipe: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="image">Recipe Image:</label>
+            <label htmlFor="imageUrl">Recipe Image URL:</label>
             <input
-              type="file"
-              id="image"
-              accept="image/*"
-              onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)}
+              type="text"
+              id="imageUrl"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
               required
             />
           </div>
