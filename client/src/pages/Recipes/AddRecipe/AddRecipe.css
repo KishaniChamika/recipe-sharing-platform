@@ -1,0 +1,111 @@
+/* Apply background image to the entire page */
+.add-recipe-page {
+  min-height: 100vh;
+  background-image: url('./back.jpg'); /* Use the image placed in the public folder */
+  background-size: cover; /* Ensure the image covers the whole page */
+  background-position: center; /* Center the background image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Form container */
+.add-recipe {
+  max-width: 600px; /* Adequate width for readability */
+  margin: 0 auto;
+  padding: 30px; /* Increased padding for a spacious layout */
+  border: 1px solid #ddd;
+  border-radius: 12px; /* More rounded corners for a modern look */
+  background-color: #ffffff; /* Light background color for contrast */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+}
+
+/* Form title */
+.add-recipe h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333333; /* Slightly darker color for better contrast */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  font-size: 24px; /* Larger font size for emphasis */
+}
+
+/* Form layout */
+.add-recipe form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Slightly increased gap between form elements */
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Slightly increased gap for readability */
+}
+
+.form-group label {
+  font-weight: 600; /* Bolder labels for clarity */
+  color: #333333; /* Consistent dark color for labels */
+}
+
+/* Form inputs */
+.add-recipe input,
+.add-recipe textarea,
+.add-recipe select {
+  padding: 12px; /* Increased padding for comfort */
+  border-radius: 6px; /* Slightly more rounded corners */
+  border: 1px solid #f8931f; /* Light orange border for contrast */
+  font-size: 16px; /* Larger font size for readability */
+  color: #333; /* Dark text color for better contrast */
+  background-color: #fff; /* Ensure background is white for contrast */
+}
+
+
+
+.add-recipe textarea {
+  resize: vertical; /* Allow vertical resize */
+  min-height: 80px; /* Increased minimum height for more content visibility */
+}
+
+/* Image preview */
+.image-preview {
+  width: 100%;
+  max-height: 200px; /* Increased max height for image preview */
+  object-fit: cover;
+  margin-top: 15px;
+  border-radius: 8px; /* Slightly more rounded corners */
+  border: 1px solid #ddd; /* Border for better definition */
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.submit-btn,
+.cancel-btn {
+  padding: 12px 24px; /* Adjusted padding for a more prominent button */
+  border: none;
+  border-radius: 8px; /* Rounded corners for buttons */
+  color: white;
+  cursor: pointer;
+  font-size: 16px; /* Larger font size for buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.submit-btn {
+  background-color: #f8931f; /* Primary color */
+}
+
+.cancel-btn {
+  background-color: #363636; /* Darker color for cancel */
+}
+
+.submit-btn:hover,
+.cancel-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+}
