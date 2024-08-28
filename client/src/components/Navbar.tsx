@@ -22,6 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
           <>
             <li><Link to="/favorites">Favorites</Link></li>
             <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/" onClick={() => window.location.reload()}>Logout</Link></li>
           </>
         ) : (
           <li><Link to="/login">Login</Link></li>
