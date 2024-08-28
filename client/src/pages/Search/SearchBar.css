@@ -11,7 +11,7 @@ html, body {
     align-items: center;
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
-    background-image: url('./search.jpg');
+    background-image: url('./Search.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
