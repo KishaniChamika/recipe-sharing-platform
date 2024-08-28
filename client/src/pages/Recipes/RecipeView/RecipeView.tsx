@@ -1,63 +1,111 @@
-import React, { useState } from 'react';
-import RecipeCard from '../../Recipes/RecipeCard/RecipeCard';
+import React, { useEffect, useState } from 'react';
+import RecipeCard from '../RecipeCard/RecipeCard';
 import { Recipe } from '../types/recipe';
 import { useNavigate } from 'react-router-dom';
 import { FaPlusCircle } from 'react-icons/fa';
 import './RecipeView.css';
+import { getRecipes } from '../../../api/recipeService';
 
-const initialRecipes: Recipe[] = [
-  {
-    id: '1',
-    name: 'Chocolate Cake',
-    image: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=556,505',
-    ingredients: 'Flour, Sugar, Cocoa Powder, Eggs',
-    instructions: 'Mix and bake at 350°F for 30 minutes.',
-    category: 'Dessert',
-    isFavorite: false,
-  },
-  {
-    id: '2',
-    name: 'Caesar Salad',
-    image: 'https://via.placeholder.com/150',
-    ingredients: 'Lettuce, Croutons, Caesar Dressing',
-    instructions: 'Toss and serve.',
-    category: 'Lunch',
-    isFavorite: false,
-  },
-];
-
+interface RecipeViewProps {
+  recipes: Recipe[];
+  onToggleFavorite: (id: any) => void;
+  onViewDetails: (id: any) => void;
+}
 const RecipeView: React.FC = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const navigate = useNavigate();
 
-  const handleToggleFavorite = (id: string) => {
+  
+    useEffect(() => {
+      const fetchRecipes = async () => {
+        try {
+          const data = await getRecipes();
+          setRecipes(data);
+        } catch (error) {
+          console.error('Failed to fetch recipes', error);
+        }
+      };
+  
+      fetchRecipes();
+    }, []);
+
+  const handleAddRecipe = () => {
+    navigate('/add-recipe');
+  };
+
+  const handleViewDetails = (id: any) => {
+    navigate(`/recipe/${id}`);
+  };
+
+  const handleToggleFavorite = async (id: any, isFavorite: boolean) => {
+    const formData = new FormData();
+    formData.append('isFavorite', String(!isFavorite));
+    try {
+      const response = await fetch(`http://localhost:5002/api/recipes/${id}/favorite`, {
+        method: 'PUT',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Favorite status updated:', result);
+        // alert('Favorite status updated successfully!');
+        
+        // Optionally update the state here if you need to
+        setRecipes((prevRecipes) =>
+          prevRecipes.map((recipe) =>
+            recipe._id === id ? { ...recipe, isFavorite: isFavorite } : recipe
+          )
+        );
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to update favorite status:', errorData);
+        // alert('Failed to update favorite status.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    }
     setRecipes((prevRecipes) =>
       prevRecipes.map((recipe) =>
-        recipe.id === id ? { ...recipe, isFavorite: !recipe.isFavorite } : recipe
+        recipe._id === id ? { ...recipe, isFavorite: !recipe.isFavorite } : recipe
       )
     );
   };
-
-  const handleViewDetails = (id: string) => {
-    navigate(`/recipes/${id}`);
-  };
+  
 
   return (
-    <div className="recipe-view-page">
+    <div className="recipe-view">
       <div className="recipe-list">
-        {recipes.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            recipe={recipe}
-            onToggleFavorite={handleToggleFavorite}
-            onViewDetails={handleViewDetails}
-          />
-        ))}
+      {recipes.map((recipe) => (
+  <RecipeCard
+    key={recipe._id}  // Ensure each recipe has a unique ID
+    recipe={recipe}
+    onToggleFavorite={handleToggleFavorite}
+    onViewDetails={handleViewDetails}
+  />
+))}
       </div>
-      <div className="add-recipe-button">
-        <button onClick={() => navigate('/add-recipe')}>
-          <FaPlusCircle size={40} color="#f8931f" />
-        </button>
+      <div
+        className="add-recipe-icon-wrapper"
+        onClick={handleAddRecipe}
+        style={{
+          position: 'fixed',
+          bottom: '30px',
+          right: '20px',
+          cursor: 'pointer',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '48px',
+            color: '#f8931f',
+            transition: 'transform 0.3s ease',
+          }}
+        >
+          <FaPlusCircle />
+          
+        </div>
       </div>
     </div>
   );
