@@ -33,7 +33,7 @@ const RecipeDetails: React.FC = () => {
   return (
     <div className="recipe-details-container">
       <div className="recipe-details-card">
-      <img src={`http://localhost:5002${recipe.image}`} alt={recipe.name} className="recipe-details-image" />
+      <img src={`http://localhost:3000${recipe.image}`} alt={recipe.name} className="recipe-details-image" />
         <div className="recipe-details-content">
           <h2 className="recipe-details-name">{recipe.name}</h2>
           <p className="recipe-details-category">{recipe.category}</p>

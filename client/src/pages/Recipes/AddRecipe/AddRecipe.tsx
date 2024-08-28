@@ -25,7 +25,7 @@ const AddRecipe: React.FC = () => {
       formData.append('image', image);
   
       try {
-        const response = await fetch('http://localhost:5002/api/recipes', {
+        const response = await fetch('http://localhost:3000/api/recipes', {
           method: 'POST',
           body: formData,
         });
