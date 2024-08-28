@@ -3,10 +3,10 @@ import { Login } from "./login";
 import { Register } from "./register";
 
 interface AuthProps {
-  onLogin: (status: boolean) => void;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
+export const Auth: React.FC<AuthProps> = ({ setIsLoggedIn }) => {
   const [showLogin, setShowLogin] = useState(true);
 
   const switchForm = () => {
@@ -17,7 +17,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
     <div className="auth">
       <div>
         {showLogin ? (
-          <Login switchForm={switchForm} onLogin={onLogin} />
+          <Login switchForm={switchForm} setIsLoggedIn={setIsLoggedIn} />
         ) : (
           <Register switchForm={switchForm} />
         )}

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import './auth.css';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../api/api';
-import './auth.css';
 
 interface LoginProps {
   switchForm: () => void;
-  onLogin: (status: boolean) => void; // Added prop for login status update
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Login: React.FC<LoginProps> = ({ switchForm, onLogin }) => {
+export const Login: React.FC<LoginProps> = ({ switchForm, setIsLoggedIn }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
@@ -16,12 +17,14 @@ export const Login: React.FC<LoginProps> = ({ switchForm, onLogin }) => {
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
+      // Call the loginUser function to send the POST request
       const data = await loginUser(email, password);
 
       if (data.token) {
+        // Store the token in localStorage
         localStorage.setItem("accessToken", data.token);
         alert(`Login successful: ${data.message}`);
-        onLogin(true); // Call the function to update login status
+        setIsLoggedIn(true);  // Set login state to true
         navigate('/');
       } else {
         alert(`Login failed: ${data.message}`);
@@ -37,6 +40,7 @@ export const Login: React.FC<LoginProps> = ({ switchForm, onLogin }) => {
       <div className='wrapper'>
         <form onSubmit={onSubmit}>
           <h1>LOGIN</h1>
+
           <div className='input-box'>
             <label htmlFor="email">Email: </label>
             <input

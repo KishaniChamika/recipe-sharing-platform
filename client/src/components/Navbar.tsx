@@ -4,9 +4,10 @@ import './Navbar.css';
 
 interface NavbarProps {
   isLoggedIn: boolean;
+  handleLogout: () => void; // Function to handle logout
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, handleLogout }) => {
   return (
     <nav className="navbar">
       <div className="logo">
@@ -22,10 +23,10 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
           <>
             <li><Link to="/favorites">Favorites</Link></li>
             <li><Link to="/profile">Profile</Link></li>
-            <li><Link to="/" onClick={() => window.location.reload()}>Logout</Link></li>
+            <li><Link to="#" onClick={handleLogout} className="nav-link">Logout</Link></li>
           </>
         ) : (
-          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/auth">Login</Link></li> /* Adjusted to match route for the Auth component */
         )}
       </ul>
     </nav>
