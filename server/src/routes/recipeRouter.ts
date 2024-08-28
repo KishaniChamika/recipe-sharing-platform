@@ -6,7 +6,7 @@ const router = express.Router();
 
 const upload = multer({ dest: 'uploads/images' });
 
-router.post('/recipes', upload.single('image'), addRecipe);
+router.post('/recipes', addRecipe);
 router.get('/recipes', getRecipes);
 router.get('/recipes/:id', getRecipeById);
 router.put('/recipes/:id/favorite',upload.none(), updateRecipeFavoriteStatus);

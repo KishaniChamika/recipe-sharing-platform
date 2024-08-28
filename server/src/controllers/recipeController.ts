@@ -11,20 +11,18 @@ export const getRecipes = async (req: Request, res: Response) => {
 };
 
 export const addRecipe = async (req: Request, res: Response) => {
-    try {
-      const { name, ingredients, instructions, category } = req.body;
-      const image = req.file ? `/uploads/images/${req.file.filename}` : '';
-  
-      
-  
-      const newRecipe = new Recipe({ name, image, ingredients, instructions, category });
-      await newRecipe.save();
-      res.status(201).json(newRecipe);
-    } catch (error) {
-      console.error('Failed to add recipe:', error);
-      res.status(500).json({ message: 'Failed to add recipe', error });
-    }
-  };
+  try {
+    const { name, image, ingredients, instructions, category } = req.body;
+
+    const newRecipe = new Recipe({ name, image, ingredients, instructions, category });
+    await newRecipe.save();
+    res.status(201).json(newRecipe);
+  } catch (error) {
+    console.error('Failed to add recipe:', error);
+    res.status(500).json({ message: 'Failed to add recipe', error });
+  }
+};
+
 
   
   export const getRecipeById = async (req: Request, res: Response) => {
@@ -59,6 +57,6 @@ export const addRecipe = async (req: Request, res: Response) => {
         res.status(200).json(updatedRecipe);
     } catch (error) {
         console.error('Failed to update favorite status:', error);
-        res.status(500).json({ message: 'Failed to update favorite status', error });
-    }
+        res.status(500).json({ message: 'Failed to update favorite status', error });
+    }
 };
