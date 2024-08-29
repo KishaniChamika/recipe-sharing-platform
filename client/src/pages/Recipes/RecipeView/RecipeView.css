@@ -1,0 +1,58 @@
+/* src/pages/RecipeView/RecipeView.css */
+.recipe-view {
+  padding: 16px;
+  min-height: 100vh; /* Ensures the background covers the full viewport height */
+}
+
+.add-recipe-btn {
+  background-color: #f8931f;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Add border to recipe cards */
+.recipe-card {
+  background-color: #fff; /* Background color for the card */
+  border: 3px solid #f8931f; /* Adds a border with color */
+  border-radius: 8px; /* Rounds the corners of the card */
+  padding: 16px; /* Adds some padding inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+.add-recipe-icon-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.add-recipe-icon-wrapper > div {
+  width: 60px; /* Increase the circle size */
+  height: 60px; /* Increase the circle size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8931f; /* Circle color */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.add-recipe-icon-wrapper > div > svg {
+  font-size: 24px; /* Decrease the plus mark size */
+  color: #fff; /* Plus mark color */
+}
+
+.add-recipe-icon-wrapper:hover > div {
+  transform: scale(1.1);
+}

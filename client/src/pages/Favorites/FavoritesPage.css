@@ -1,0 +1,61 @@
+.favorites-page {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #363636;
+}
+
+.recipe-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.recipe-card {
+  background-color: #fffcf9;
+  border: 1px solid #f8931f;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  position: relative; /* Make the card a positioned ancestor */
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-content {
+  padding: 15px;
+  text-align: center;
+  position: relative; /* Ensure that the content area can accommodate the absolute positioning of the icon */
+}
+
+.recipe-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  color: #f8931f;
+}
+
+.recipe-content .recipe-category {
+  font-size: 1em;
+  color: #363636;
+}
+
+.favorite-icon {
+  position: absolute;
+  bottom: 10px; /* Distance from the bottom */
+  left: 150px; /* Distance from the right */
+  color: red; /* Heart icon color */
+  font-size: 1.5em; /* Adjust size as needed */
+}

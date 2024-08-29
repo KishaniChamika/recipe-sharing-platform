@@ -1,0 +1,95 @@
+.prof-container {
+    background-color: #fffcf9;
+    background: url('./back.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+} 
+
+.profile-wrapper {
+    justify-content: center;
+    width:420px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:#fffcf9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(30px);
+    background: transparent;
+    color:#fffcf9;
+    border: 3px solid rgba(255, 255, 255, .2);
+}
+
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fffcf9;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.info {
+    flex-grow: 1;
+    margin-left: 20px;
+    color:#fffcf9;
+    margin-bottom: 15px;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+label {
+    display: block;
+    margin: 15px 5;
+    
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Make the buttons take the full width of the container */
+    margin-top: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button-group button {
+    background-color:#f8931f;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; 
+    margin: auto;
+    margin-top: 30px;
+    align-items:center;
+    
+}
+
+.button-group button:hover {
+    background-color:#febf77;
+}
+
