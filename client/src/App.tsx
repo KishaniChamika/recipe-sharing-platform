@@ -10,6 +10,7 @@ import { About } from './pages/About/about';
 import { ProfilePage } from './pages/UserProfile/profile';
 import { Auth } from './pages/Authentication/auth';
 import { SearchBar } from './pages/Search/SearchBar';
+import FavoritesPage from './pages/Favorites/FavoritesPage';
 
 const App: React.FC = () => {
   // State to handle user's login status
@@ -52,6 +53,7 @@ const App: React.FC = () => {
           <Route path="/profile" element={isLoggedIn ? <ProfilePage /> : <Auth setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/login" element={<Auth setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/search" element={<SearchBar />} />
+          <Route path="/favorites" element= {<FavoritesPage />} />
         </Routes>
       </>
     );

@@ -35,3 +35,13 @@ export const addRecipe = async (recipeData: FormData) => {
     throw error;
   }
 };
+
+// export const getFavoriteRecipes = async () => {
+//   try {
+//     const response = await axios.get(`${API_URL}/favorites`);
+//     return response.data;
+//   } catch (error) {
+//     console.error('Error fetching favorite recipes:', error);
+//     throw error;
+//   }
+// };
