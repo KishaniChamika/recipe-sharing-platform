@@ -1,5 +1,9 @@
 import express from 'express';
+<<<<<<< HEAD
 import { addRecipe, getRecipes,getRecipeById, updateRecipeFavoriteStatus,getFavoriteRecipes, searchRecipes  } from '../controllers/recipeController';
+=======
+import { addRecipe, getRecipes,getRecipeById, updateRecipeFavoriteStatus,getFavoriteRecipes,searchRecipes  } from '../controllers/recipeController';
+>>>>>>> e05efe8d04d3750bc40cb70bf02ba0cae156acd1
 import multer from 'multer';
 
 const router = express.Router();

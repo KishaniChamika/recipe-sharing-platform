@@ -45,6 +45,30 @@
   font-weight: bold; /* Bold text */
   margin-bottom: 12px;
   
+<<<<<<< HEAD
+=======
+}
+
+.recipe-details-category {
+  color: #888888; /* Light grey for category text */
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.recipe-details-content h3 {
+  margin-top: 15px;
+  color: #363636; /* Dark color for headers */
+  font-size: 18px; /* Font size for headers */
+  font-weight: 600; /* Semi-bold headers */
+  margin-bottom: 8px;
+}
+
+.recipe-details-content p {
+  color: #555555; /* Dark grey for paragraphs */
+  font-size: 14px; /* Smaller font size for paragraphs */
+  margin-bottom: 10px;
+  line-height: 1.6; /* Line height for readability */
+>>>>>>> e05efe8d04d3750bc40cb70bf02ba0cae156acd1
 }
 
 .recipe-details-category {

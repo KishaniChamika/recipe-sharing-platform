@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddRecipe.css';
-import RecipeView from '../RecipeView/RecipeView';
+
 
 const categories = ['Select Category', 'Soup', 'Desserts', 'Salads', 'Beverages', 'Appetizers', 'Main Courses', 'Baked'];
 

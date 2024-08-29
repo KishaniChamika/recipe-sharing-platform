@@ -1,12 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Recipe } from '../types/recipe';
 import './RecipeDetails.css';
 import { getRecipeById } from '../../../api/recipeService';
 
 const RecipeDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
 
   useEffect(() => {
