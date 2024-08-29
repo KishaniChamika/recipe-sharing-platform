@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Recipe } from '../types/recipe';
+import { Recipe } from '../../pages/Recipes/types/recipe';
 import './RecipeDetails.css';
-import { getRecipeById } from '../../../api/recipeService';
+import { getRecipeById } from '../../api/recipeService';
 
 const RecipeDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,7 +33,7 @@ const RecipeDetails: React.FC = () => {
   return (
     <div className="recipe-details-container">
       <div className="recipe-details-card">
-      <img src={recipe.image} alt={recipe.name} className="recipe-details-image" />
+      <img src={`http://localhost:3000${recipe.image}`} alt={recipe.name} className="recipe-details-image" />
         <div className="recipe-details-content">
           <h2 className="recipe-details-name">{recipe.name}</h2>
           <p className="recipe-details-category">{recipe.category}</p>

@@ -1,12 +1,12 @@
 // src/pages/search/SearchBar.tsx
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Updated import
+import { useNavigate } from 'react-router-dom';
 import './SearchBar.css';
 import { FaSearch } from 'react-icons/fa';
 
 interface Recipe {
-    id: number;
+    _id: string;
     name: string;
 }
 
@@ -14,28 +14,63 @@ export const SearchBar: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [results, setResults] = useState<Recipe[]>([]);
     const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
+    const navigate = useNavigate();
 
-    const navigate = useNavigate(); // Use useNavigate instead of useHistory
-
+    const filterRecipesByName = (
+        name: string,
+        recipes: Recipe[],
+        setResults: React.Dispatch<React.SetStateAction<Recipe[]>>
+    ) => {
+        console.log('Search term:', name); // Log search term
+        console.log('All recipes:', recipes); // Log all recipes
+    
+        if (name === "") {
+            setResults([]);
+            return;
+        }
+    
+        if (!name || !recipes.length) return;
+    
+        const searchResult: Recipe[] = [];
+        const data = name.toLowerCase();
+    
+        for (const recipe of recipes) {
+            // Safeguard: Check if recipe.name is defined
+            if (recipe.name) {
+                const recipeName = recipe.name.toLowerCase();
+    
+                if (recipeName.includes(data)) {
+                    searchResult.push(recipe);
+                }
+            } else {
+                console.warn('Recipe name is undefined:', recipe); // Warn if recipe.name is undefined
+            }
+        }
+    
+        console.log('Filtered results:', searchResult); // Log filtered results
+        setResults(searchResult);
+    };
+    
     useEffect(() => {
-        setAllRecipes([
-            { id: 1, name: 'Chocolate Cake' },
-            { id: 2, name: 'Caesar Salad' },
-            { id: 3, name: 'Beef Stroganoff' },
-            { id: 4, name: 'Vegetable Stir Fry' }
-        ]);
+        const fetchRecipes = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/recipes');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                console.log('Fetched recipes:', data); // Check data structure
+                setAllRecipes(data);
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+            }
+        };
+    
+        fetchRecipes();
     }, []);
 
     useEffect(() => {
-        if (searchTerm) {
-            const firstLetter = searchTerm[0].toLowerCase();
-            const filteredResults = allRecipes.filter(recipe =>
-                recipe.name.toLowerCase().startsWith(firstLetter)
-            );
-            setResults(filteredResults);
-        } else {
-            setResults([]);
-        }
+        filterRecipesByName(searchTerm, allRecipes, setResults);
     }, [searchTerm, allRecipes]);
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,8 +78,8 @@ export const SearchBar: React.FC = () => {
     };
 
     const handleResultClick = (recipe: Recipe) => {
-        navigate('/recipe/${ recipe.id}'); // Navigate to the recipe details page
-        setSearchTerm(recipe.name);
+        navigate(`/recipes/${recipe._id}`);
+        setSearchTerm('');
         setResults([]);
     };
 
@@ -62,13 +97,14 @@ export const SearchBar: React.FC = () => {
                         placeholder="Search for recipes..."
                         className="search-bar"
                         value={searchTerm}
-                        onChange={handleSearchChange} />
+                        onChange={handleSearchChange}
+                    />
                     {searchTerm && (
                         <div className="search-results">
                             {results.length > 0 ? (
                                 results.map(recipe => (
                                     <div
-                                        key={recipe.id}
+                                        key={recipe._id}
                                         className="search-result-item"
                                         onClick={() => handleResultClick(recipe)}
                                     >
