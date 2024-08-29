@@ -55,7 +55,7 @@ h1 {
 .favorite-icon {
   position: absolute;
   bottom: 10px; /* Distance from the bottom */
-  left: 110px; /* Distance from the right */
+  left: 150px; /* Distance from the right */
   color: red; /* Heart icon color */
   font-size: 1.5em; /* Adjust size as needed */
 }
