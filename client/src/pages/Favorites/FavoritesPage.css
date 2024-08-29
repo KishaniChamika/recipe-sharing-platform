@@ -38,6 +38,7 @@ h1 {
 .recipe-content {
   padding: 15px;
   text-align: center;
+  position: relative; /* Ensure that the content area can accommodate the absolute positioning of the icon */
 }
 
 .recipe-content h2 {
@@ -54,7 +55,7 @@ h1 {
 .favorite-icon {
   position: absolute;
   bottom: 10px; /* Distance from the bottom */
-  right: 10px; /* Distance from the right */
+  left: 110px; /* Distance from the right */
   color: red; /* Heart icon color */
   font-size: 1.5em; /* Adjust size as needed */
 }
