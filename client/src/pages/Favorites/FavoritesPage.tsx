@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Recipe } from '../Recipes/types/recipe';
-// import { getFavoriteRecipes } from '../../api/recipeService';
+ import { getFavoriteRecipes } from '../../api/recipeService';
 import './FavoritesPage.css';
 
 const FavoritesPage: React.FC = () => {

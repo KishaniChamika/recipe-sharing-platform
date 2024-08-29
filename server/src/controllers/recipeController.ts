@@ -64,12 +64,12 @@ export const updateRecipeFavoriteStatus = async (req: Request, res: Response) =>
 };
 
 // Get all favorite recipes
-// export const getFavoriteRecipes = async (req: Request, res: Response) => {
-//   try {
-//     const favoriteRecipes = await Recipe.find({ isFavorite: true });
-//     res.status(200).json(favoriteRecipes);
-//   } catch (error) {
-//     console.error('Failed to fetch favorite recipes:', error);
-//     res.status(500).json({ message: 'Failed to fetch favorite recipes' });
-//   }
-// };
+export const getFavoriteRecipes = async (req: Request, res: Response) => {
+  try {
+    const favoriteRecipes = await Recipe.find({ isFavorite: true });
+    res.status(200).json(favoriteRecipes);
+  } catch (error) {
+    console.error('Failed to fetch favorite recipes:', error);
+    res.status(500).json({ message: 'Failed to fetch favorite recipes' });
+  }
+};

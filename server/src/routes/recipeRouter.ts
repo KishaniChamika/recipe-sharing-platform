@@ -10,6 +10,6 @@ router.post('/recipes', addRecipe);
 router.get('/recipes', getRecipes);
 router.get('/recipes/:id', getRecipeById);
 router.put('/recipes/:id/favorite',upload.none(), updateRecipeFavoriteStatus);
-// router.get('/favorites', getFavoriteRecipes); // New route for fetching favorite recipes
+router.get('/favorites', getFavoriteRecipes); // New route for fetching favorite recipes
 
 export default router;
