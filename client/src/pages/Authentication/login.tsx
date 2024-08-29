@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './auth.css';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../api/api';
@@ -59,8 +58,8 @@ export const Login: React.FC<LoginProps> = ({ switchForm, setIsLoggedIn }) => {
               placeholder="Enter your password"
             />
           </div>
-          <button type="submit">Login</button>
-          <p className="switch">Don't have an account? <a href="#" onClick={switchForm} className='register-link'>Register here</a></p>
+          <button  className="submit" type="submit">Login</button>
+          <p className="switch">Don't have an account? <button onClick={switchForm} className='register-link'>Register here</button></p>
         </form>
       </div>
     </div>
