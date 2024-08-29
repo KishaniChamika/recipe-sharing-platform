@@ -6,11 +6,7 @@ import { FaPlusCircle } from 'react-icons/fa';
 import './RecipeView.css';
 import { getRecipes } from '../../../api/recipeService';
 
-interface RecipeViewProps {
-  recipes: Recipe[];
-  onToggleFavorite: (id: any) => void;
-  onViewDetails: (id: any) => void;
-}
+
 const RecipeView: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const navigate = useNavigate();
