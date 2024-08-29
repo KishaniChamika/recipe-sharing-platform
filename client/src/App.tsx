@@ -54,6 +54,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<Auth setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/search" element={<SearchBar />} />
           <Route path="/favorites" element= {<FavoritesPage />} />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
         </Routes>
       </>
     );

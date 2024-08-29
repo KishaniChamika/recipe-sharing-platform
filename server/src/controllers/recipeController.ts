@@ -73,3 +73,12 @@ export const getFavoriteRecipes = async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Failed to fetch favorite recipes' });
   }
 };
+export const searchRecipes = async (req: Request, res: Response) => {
+  try {
+      const searchTerm = req.query.searchTerm as string;
+      const recipes = await Recipe.find({ name: new RegExp(searchTerm, 'i') });
+      res.status(200).json(recipes);
+  } catch (error) {
+      res.status(500).json({ message: 'Error searching recipes', error });
+  }
+};
