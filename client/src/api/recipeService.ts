@@ -1,30 +1,39 @@
 import axios from 'axios';
+import { Recipe } from '../pages/Recipes/types/recipe';
 
 const API_URL = 'http://13.208.240.223:3000/api'; // Base URL of your backend
 
-export const getRecipes = async () => {
+// Function to get recipes with optional category filtering
+export const getRecipes = async (category?: string): Promise<Recipe[]> => {
   try {
-    const response = await axios.get(`${API_URL}/recipes`);
+    // Construct the request URL with query parameters
+    const response = await axios.get<Recipe[]>(`${API_URL}/recipes`, {
+      params: { category }, // Pass category as a query parameter
+    });
     return response.data;
   } catch (error) {
     console.error('Error fetching recipes:', error);
-    throw error;
+    // Handle error appropriately
+    throw new Error('Could not fetch recipes. Please try again later.');
   }
 };
 
-export const getRecipeById = async (id: string) => {
+// Function to get a single recipe by ID
+export const getRecipeById = async (id: string): Promise<Recipe> => {
   try {
-    const response = await axios.get(`${API_URL}/recipes/${id}`);
+    const response = await axios.get<Recipe>(`${API_URL}/recipes/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching recipe by ID:', error);
-    throw error;
+    // Handle error appropriately
+    throw new Error('Could not fetch recipe details. Please try again later.');
   }
 };
 
-export const addRecipe = async (recipeData: FormData) => {
+// Function to add a new recipe with form data
+export const addRecipe = async (recipeData: FormData): Promise<Recipe> => {
   try {
-    const response = await axios.post(`${API_URL}/recipes`, recipeData, {
+    const response = await axios.post<Recipe>(`${API_URL}/recipes`, recipeData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -32,16 +41,19 @@ export const addRecipe = async (recipeData: FormData) => {
     return response.data;
   } catch (error) {
     console.error('Error adding recipe:', error);
-    throw error;
+    // Handle error appropriately
+    throw new Error('Could not add recipe. Please try again later.');
   }
 };
 
-export const getFavoriteRecipes = async () => {
+// Function to get favorite recipes
+export const getFavoriteRecipes = async (): Promise<Recipe[]> => {
   try {
-    const response = await axios.get(`${API_URL}/favorites`);
+    const response = await axios.get<Recipe[]>(`${API_URL}/favorites`);
     return response.data;
   } catch (error) {
     console.error('Error fetching favorite recipes:', error);
-    throw error;
+    // Handle error appropriately
+    throw new Error('Could not fetch favorite recipes. Please try again later.');
   }
 };
