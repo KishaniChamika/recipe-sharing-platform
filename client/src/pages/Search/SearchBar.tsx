@@ -54,7 +54,7 @@ export const SearchBar: React.FC = () => {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/recipes');
+                const response = await fetch('http://13.208.240.223:3000/api/recipes');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
