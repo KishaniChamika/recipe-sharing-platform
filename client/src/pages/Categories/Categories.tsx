@@ -1,27 +1,38 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Categories.css';
-import CategoryCard from './CategoryCard'; // Importing the modular CategoryCard component
+import CategoryCard from './CategoryCard'; // Ensure this component is correctly defined
 
+// Import images statically
+import soupImage from './soup.jpg';
+import dessertsImage from './desserts.jpg';
+import saladsImage from './salads.jpg';
+import beveragesImage from './beverages.jpg';
+import appetizersImage from './appetizers.jpg';
+import mainCoursesImage from './main_courses.jpg';
+import bakedItemsImage from './baked_items.jpg';
+
+// Define the categories with imported images
 const categories = [
-  { name: 'Soup', image: require('./soup.jpg') },
-  { name: 'Desserts', image: require('./desserts.jpg') },
-  { name: 'Salads', image: require('./salads.jpg') },
-  { name: 'Beverages', image: require('./beverages.jpg') },
-  { name: 'Appetizers', image: require('./appetizers.jpg') },
-  { name: 'Main Courses', image: require('./main_courses.jpg') },
-  { name: 'Baked Items', image: require('./baked_items.jpg') },
+  { name: 'Soup', image: soupImage },
+  { name: 'Desserts', image: dessertsImage },
+  { name: 'Salads', image: saladsImage },
+  { name: 'Beverages', image: beveragesImage },
+  { name: 'Appetizers', image: appetizersImage },
+  { name: 'Main Courses', image: mainCoursesImage },
+  { name: 'Baked Items', image: bakedItemsImage },
 ];
 
 const Categories: React.FC = () => {
   const navigate = useNavigate();
 
   const handleClick = (category: string) => {
-    navigate(`/recipes/${category}`);
+    navigate(`/category/${encodeURIComponent(category)}`); // Navigate to the correct category route
   };
 
   return (
     <div className="categories-page">
+      <h1>Recipe Categories</h1>
       <div className="categories-container">
         {categories.map((category) => (
           <CategoryCard
