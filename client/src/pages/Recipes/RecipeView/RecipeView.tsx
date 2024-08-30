@@ -37,7 +37,7 @@ const RecipeView: React.FC = () => {
     const formData = new FormData();
     formData.append('isFavorite', String(!isFavorite));
     try {
-      const response = await fetch(`http://localhost:3000/api/recipes/${id}/favorite`, {
+      const response = await fetch(`http://13.208.240.223:3000/api/recipes/${id}/favorite`, {
         method: 'PUT',
         body: formData,
       });

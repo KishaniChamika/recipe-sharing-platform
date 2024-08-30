@@ -26,7 +26,7 @@ const AddRecipe: React.FC = () => {
       };
   
       try {
-        const response = await fetch('http://localhost:3000/api/recipes', {
+        const response = await fetch('http://13.208.240.223:3000/api/recipes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

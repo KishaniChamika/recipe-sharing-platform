@@ -25,7 +25,7 @@ export const ProfilePage: React.FC = () => {
         const fetchProfile = async () => {
             try {
                 const token = localStorage.getItem('accessToken');
-                const response = await axios.get('http://localhost:3000/api/user', {
+                const response = await axios.get('http://13.208.240.223:3000/api/user', {
                 
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -61,7 +61,7 @@ export const ProfilePage: React.FC = () => {
                 formData.append('avatar', avatar);
             }
 
-            const response = await axios.put('http://localhost:3000/api/user', formData, {
+            const response = await axios.put('http://13.208.240.223:3000/api/user', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -88,7 +88,7 @@ export const ProfilePage: React.FC = () => {
                     <div>
                         <div className="avatar">
                             {user.avatar ? (
-                                <img src={`http://localhost:3000/${user.avatar}`} alt="Avatar" />
+                                <img src={`http://13.208.240.223:3000/${user.avatar}`} alt="Avatar" />
                             ) : (
                                 <span>No Avatar</span>
                             )}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Recipe } from '../pages/Recipes/types/recipe';
 
-const API_URL = 'http://localhost:3000/api'; // Base URL of your backend
+const API_URL = 'http://13.208.240.223:3000/api'; // Base URL of your backend
 
 // Function to get recipes with optional category filtering
 export const getRecipes = async (category?: string): Promise<Recipe[]> => {
