@@ -68,8 +68,8 @@ export const Register: React.FC<RegisterProps> = ({ switchForm }) =>{
                 </div>
 
                 
-                <button type="submit" >Register</button>
-                <p className='switch'>Already have an account? <a href="#" onClick={switchForm} className='register-link' >Login here</a></p>
+                <button className="submit" type="submit" >Register</button>
+                <p className='switch'>Already have an account? <button onClick={switchForm} className='register-link' >Login here</button></p>
             </form>
             </div>
         </div>
