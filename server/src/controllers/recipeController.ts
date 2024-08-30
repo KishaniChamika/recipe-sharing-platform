@@ -1,12 +1,24 @@
 import { Request, Response } from 'express';
 import Recipe from '../models/Recipe';
 
-// Get all recipes
+// Get all recipes with optional category filtering
 export const getRecipes = async (req: Request, res: Response) => {
   try {
-    const recipes = await Recipe.find();
+    // Extract category from query parameters
+    const { category } = req.query;
+    
+    // Create a query object for filtering
+    const query: any = {};
+    
+    if (category) {
+      query.category = category;
+    }
+
+    // Find recipes based on the query object
+    const recipes = await Recipe.find(query);
     res.status(200).json(recipes);
   } catch (error) {
+    console.error('Failed to fetch recipes:', error);
     res.status(500).json({ message: 'Failed to fetch recipes', error });
   }
 };
@@ -35,6 +47,7 @@ export const getRecipeById = async (req: Request, res: Response) => {
       res.status(404).json({ message: 'Recipe not found' });
     }
   } catch (error) {
+    console.error('Failed to fetch recipe:', error);
     res.status(500).json({ message: 'Failed to fetch recipe', error });
   }
 };
@@ -70,15 +83,17 @@ export const getFavoriteRecipes = async (req: Request, res: Response) => {
     res.status(200).json(favoriteRecipes);
   } catch (error) {
     console.error('Failed to fetch favorite recipes:', error);
-    res.status(500).json({ message: 'Failed to fetch favorite recipes' });
+    res.status(500).json({ message: 'Failed to fetch favorite recipes', error });
   }
 };
+
+// Search recipes by name
 export const searchRecipes = async (req: Request, res: Response) => {
   try {
-      const searchTerm = req.query.searchTerm as string;
-      const recipes = await Recipe.find({ name: new RegExp(searchTerm, 'i') });
-      res.status(200).json(recipes);
+    const searchTerm = req.query.searchTerm as string;
+    const recipes = await Recipe.find({ name: new RegExp(searchTerm, 'i') });
+    res.status(200).json(recipes);
   } catch (error) {
-      res.status(500).json({ message: 'Error searching recipes', error });
-  }
+    res.status(500).json({ message: 'Error searching recipes', error });
+  }
 };
