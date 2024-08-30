@@ -1,0 +1,12 @@
+.recipe-category-page {
+    padding: 0px;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the page content */
+  }
+
+  .recipe-category-page h1{
+    text-align: center;
+    color: #f8931f;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }

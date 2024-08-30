@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getRecipes } from '../../api/recipeService';
 import { Recipe } from '../Recipes/types/recipe';
 import RecipeCard from '../Recipes/RecipeCard/RecipeCard';
+import './RecipeCategory.css';
 
 const RecipeCategoryPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
