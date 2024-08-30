@@ -15,7 +15,11 @@
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
+  margin-left: 30px;
 }
+
+
 .categories-page h1{
   color: #fffcf9;
+  margin-left: 30px;
 }
