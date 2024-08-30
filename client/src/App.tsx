@@ -11,6 +11,7 @@ import { ProfilePage } from './pages/UserProfile/profile';
 import { Auth } from './pages/Authentication/auth';
 import { SearchBar } from './pages/Search/SearchBar';
 import FavoritesPage from './pages/Favorites/FavoritesPage';
+import RecipeCategoryPage from './pages/RecipeCategoriesPage/RecipeCategoryPage'; // Import RecipeCategoryPage
 
 const App: React.FC = () => {
   // State to handle user's login status
@@ -43,18 +44,19 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/about" element={<About />} />
-          
+
           {/* Recipe-related routes */}
           <Route path="/recipes" element={<RecipeView />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route path="/add-recipe" element={isLoggedIn ? <AddRecipe /> : <Auth setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/category/:category" element={<RecipeCategoryPage />} /> {/* Correct route for RecipeCategoryPage */}
           
           {/* Profile, Authentication, and Search routes */}
           <Route path="/profile" element={isLoggedIn ? <ProfilePage /> : <Auth setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/login" element={<Auth setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/search" element={<SearchBar />} />
-          <Route path="/favorites" element= {<FavoritesPage />} />
-          <Route path="/recipes/:id" element={<RecipeDetails />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
         </Routes>
       </>
     );
